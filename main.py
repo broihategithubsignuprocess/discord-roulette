@@ -20,15 +20,18 @@ class DiscordRoulette:
             web.header('Cache-Control', 'no-store')
 
             if random.randint(1, int(100/chance)) == 1:
+                web.header('Cache-Control', 'no-store')
                 return hentai
             else:
+                web.header('Cache-Control', 'no-store')
                 return cute
         except:
             pass
         
     def GET(self, name):
         web.header('Content-type', 'image/png')
-        return self.handleReq() or cute
+        web.header('Cache-Control', 'no-store')
+        return self.handleReq() or "no"
 
 if __name__ == "__main__":
     web.httpserver.runsimple(app.wsgifunc(), (host, port))
