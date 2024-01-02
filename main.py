@@ -1,10 +1,13 @@
 import web
 import random
+import math
 
 app = web.application(('(.*)', 'DiscordRoulette'), globals())
 web.config.debug = False
 host = "0.0.0.0"
 port = 8000
+
+chance = 50
 
 with open('media/cute.jpg', 'rb') as f:
     cute = f.read()
@@ -16,7 +19,7 @@ class DiscordRoulette:
         try:
             web.header('Cache-Control', 'no-store')
 
-            if random.randint(1, 10) == 10:
+            if random.randint(1, int(100/chance)) == 1:
                 return hentai
             else:
                 return cute
