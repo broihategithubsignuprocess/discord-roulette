@@ -3,7 +3,7 @@ import random
 
 app = web.application(('(.*)', 'DiscordRoulette'), globals())
 web.config.debug = False
-host = "127.0.0.1"
+host = "0.0.0.0"
 port = 8000
 
 with open('media/cute.jpg', 'rb') as f:
